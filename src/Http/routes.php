@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::any('captcha', 'IndexController@captcha')->name('strongadmin.captcha'); //图片验证码
 Route::any('login', 'AdminAuthController@login')->name('strongadmin.login'); //登录
 Route::any('logout', 'AdminAuthController@logout')->name('strongadmin.logout'); //退出
-Route::any('home', 'IndexController@home')->name('strongadmin.home'); //home 主页
+Route::any('/', 'IndexController@home')->name('strongadmin.home'); //home 主页
 Route::any('index/panel', 'IndexController@panel')->name('strongadmin.panel'); //面板
 //操作日志
 Route::any('adminLog/index', 'AdminLogController@index');

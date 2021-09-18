@@ -15,6 +15,9 @@ class StrongAdminServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        if (! config('strongadmin.enabled')) {
+            return;
+        }
         Route::middlewareGroup('strongadmin', config('strongadmin.middleware', []));
         $this->registerRoutes();
         $this->registerMigrations();

@@ -11,9 +11,6 @@ use Illuminate\Support\Facades\Route;
 class Auth
 {
 
-    //忽略检测的路由
-    public $ignore_auth_url = ['strongadmin/login', 'strongadmin/logout', 'strongadmin/captcha'];
-
     /**
      * Handle an incoming request.
      *
@@ -37,7 +34,7 @@ class Auth
 
     protected function getIgnoreUrl()
     {
-        return $this->ignore_auth_url;
+        return config('strongadmin.ignore_auth_check_url');
     }
 
 }

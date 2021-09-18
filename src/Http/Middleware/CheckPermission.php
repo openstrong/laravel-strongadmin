@@ -13,9 +13,6 @@ use OpenStrong\StrongAdmin\Models\AdminRole;
 class CheckPermission extends Auth
 {
 
-    //忽略检测权限的路由
-    public $ignore_check_url = ['strongadmin/home'];
-
     /**
      * Handle an incoming request.
      *
@@ -75,7 +72,7 @@ class CheckPermission extends Auth
 
     protected function getIgnoreUrl()
     {
-        return array_merge(parent::getIgnoreUrl(), $this->ignore_check_url);
+        return parent::getIgnoreUrl();
     }
 
 }
