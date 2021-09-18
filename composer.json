@@ -1,0 +1,34 @@
+{
+    "name": "openstrong/laravel-strongadmin",
+    "description": "基于 layui 前端框架开发的 Laravel 后台管理框架。功能有 权限管理、菜单管理、角色管理、日志记录等。",
+    "type": "laravel-extension",
+    "keywords": ["laravel", "PHP", "layui", "后台管理"],
+    "license": "MIT", 
+    "authors": [
+        {
+            "name": "Karen",
+            "email": "openstrong@foxmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.0",
+        "laravel/framework": ">=5.5",
+        "mews/captcha": "^3.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "OpenStrong\\StrongAdmin\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "OpenStrong\\StrongAdmin\\StrongAdminServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "prefer-stable": true
+}
