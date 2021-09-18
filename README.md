@@ -21,17 +21,18 @@ php artisan strongadmin:install
 php artisan migrate
 ```
 
+## 更新 laravel-strongadmin
+更新 laravel-strongadmin 时，您应该重新配置加载 laravel-strongadmin 实例：
+```
+php artisan strongadmin:publish
+```
+
+
 # 浏览
 http://xxx.com/strongadmin
 ```
 后台登录账号：admin
 后台登录密码：123456
-```
-
-## 更新 laravel-strongadmin
-更新 laravel-strongadmin 时，您应该重新配置加载 laravel-strongadmin 实例：
-```
-php artisan strongadmin:publish
 ```
 
 ## 配置
