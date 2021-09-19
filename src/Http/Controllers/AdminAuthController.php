@@ -5,6 +5,7 @@ namespace OpenStrong\StrongAdmin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 use OpenStrong\StrongAdmin\Models\AdminRole;
 
 class AdminAuthController extends BaseController
@@ -22,7 +23,7 @@ class AdminAuthController extends BaseController
             return $this->view('login');
         }
         $rules = [
-            'username' => ['required', 'string', \Illuminate\Validation\Rule::exists('strongadmin_user', 'user_name')->where('status', 1)],
+            'username' => ['required', 'string', Rule::exists('strongadmin_user', 'user_name')->where('status', 1)],
             'password' => ['required', 'string'],
         ];
         if (!\App::environment(['local', 'testing']))
