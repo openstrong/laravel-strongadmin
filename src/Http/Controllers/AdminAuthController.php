@@ -14,6 +14,9 @@ class AdminAuthController extends BaseController
 
     use ThrottlesLogins;
 
+    public $maxAttempts; //允许尝试登录最大次数
+    public $decayMinutes; //登录错误超过 maxAttempts 次, 禁止登录 decayMinutes 分钟
+
     public function __construct()
     {
         //允许尝试登录最大次数
