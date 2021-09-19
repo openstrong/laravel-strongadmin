@@ -14,8 +14,13 @@ class AdminAuthController extends BaseController
 
     use ThrottlesLogins;
 
-    public $maxAttempts = 5; //允许登错几次
-    public $decayMinutes = 60; //禁止登录多少分钟，登录错误超过$maxAttempts次
+    public function __construct()
+    {
+        //允许尝试登录最大次数
+        $this->maxAttempts = config('strongadmin.throttles_logins.maxAttempts');
+        //登录错误超过 maxAttempts 次, 禁止登录 decayMinutes 分钟
+        $this->decayMinutes = config('strongadmin.throttles_logins.decayMinutes');
+    }
 
     public function login(Request $request)
     {

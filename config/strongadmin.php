@@ -37,6 +37,7 @@ return [
       |
      */
     'storage' => [
+        //数据库
         'database' => [
             'connection' => env('DB_CONNECTION', 'mysql'), //数据库连接
         ],
@@ -44,6 +45,11 @@ return [
         'super_admin' => [
             'user_name' => 'admin', //账号名称
             'password' => '123456', //账号密码
+        ],
+        //登录限制
+        'throttles_logins' => [
+            'maxAttempts' => 5, //允许尝试登录最大次数
+            'decayMinutes' => 10, //登录错误超过 maxAttempts 次, 禁止登录 decayMinutes 分钟
         ],
     ],
     
