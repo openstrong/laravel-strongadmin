@@ -4,6 +4,7 @@ namespace OpenStrong\StrongAdmin;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class StrongAdminApplicationServiceProvider extends ServiceProvider
 {
@@ -14,6 +15,7 @@ class StrongAdminApplicationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Schema::defaultStringLength(150);
         $this->authorization();
     }
 
