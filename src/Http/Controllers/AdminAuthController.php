@@ -7,11 +7,12 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use OpenStrong\StrongAdmin\Models\AdminRole;
+use \OpenStrong\StrongAdmin\Foundation\Auth\ThrottlesLogins;
 
 class AdminAuthController extends BaseController
 {
 
-    use \Illuminate\Foundation\Auth\ThrottlesLogins;
+    use ThrottlesLogins;
 
     public $maxAttempts = 5; //允许登错几次
     public $decayMinutes = 60; //禁止登录多少分钟，登录错误超过$maxAttempts次
