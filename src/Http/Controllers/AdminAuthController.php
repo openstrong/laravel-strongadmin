@@ -20,9 +20,9 @@ class AdminAuthController extends BaseController
     public function __construct()
     {
         //允许尝试登录最大次数
-        $this->maxAttempts = config('strongadmin.throttles_logins.maxAttempts');
+        $this->maxAttempts = config('strongadmin.storage.throttles_logins.maxAttempts');
         //登录错误超过 maxAttempts 次, 禁止登录 decayMinutes 分钟
-        $this->decayMinutes = config('strongadmin.throttles_logins.decayMinutes');
+        $this->decayMinutes = config('strongadmin.storage.throttles_logins.decayMinutes');
     }
 
     public function login(Request $request)
