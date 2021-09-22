@@ -109,9 +109,14 @@ class AdminMenuController extends BaseController
      */
     public function destroy(Request $request, AdminMenu $adminMenu)
     {
-        $validator = Validator::make($request->all(), [
-                    'id' => ['required', new \OpenStrong\StrongAdmin\Rules\NotExists(AdminMenu::class, 'parent_id', '请先删除下级关联数据')],
-        ]);
+        $validator = Validator::make($request->all(),
+                        [
+                            'id' => ['required', Rule::exists('strongadmin_menu', 'id')->where('delete_allow', 1), new \OpenStrong\StrongAdmin\Rules\NotExists(AdminMenu::class, 'parent_id', '请先删除下级关联数据')],
+                        ],
+                        [
+                            'id.exists' => '该菜单被强制设置为 `不允许删除`'
+                        ]
+        );
         if ($validator->fails())
         {
             return ['code' => 3001, 'message' => $validator->errors()->first(), 'data' => $validator->errors()];

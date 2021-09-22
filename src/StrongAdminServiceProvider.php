@@ -23,6 +23,9 @@ class StrongAdminServiceProvider extends ServiceProvider
         $this->registerMigrations();
         $this->registerPublishing();
         $this->loadViewsFrom(
+                resource_path('views/strongadmin'), 'strongadmin'
+        );
+        $this->loadViewsFrom(
                 __DIR__ . '/../resources/views', 'strongadmin'
         );
     }

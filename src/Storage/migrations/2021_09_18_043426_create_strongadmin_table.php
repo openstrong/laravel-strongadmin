@@ -106,6 +106,7 @@ class CreateStrongadminTable extends Migration
             $table->unsignedInteger('status')->default(1)->comment('状态 1开启,2禁用');
             $table->integer('sort')->default(100)->comment('排序');
             $table->timestamps();
+            $table->integer('delete_allow')->default(1)->comment('是否允许删除：1 允许，2 不允许');
         });
 
         $this->schema->create('strongadmin_log', function (Blueprint $table) {
@@ -169,29 +170,29 @@ class CreateStrongadminTable extends Migration
         //strongstrongadmin_menu
         $table_prefix = config("database.connections.{$this->connection}.prefix");
         \DB::connection($this->connection)->unprepared("
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (1, 1, 0, '权限管理', NULL, 1, 2001, '2021-01-06 03:37:40', '2021-05-21 20:10:57');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (2, 2, 1, '菜单管理', 'strongadmin/adminMenu/index', 1, 200, '2021-01-06 03:38:18', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (3, 3, 2, '列表查看', 'strongadmin/adminMenu/index', 1, 200, '2021-01-06 04:50:41', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (4, 3, 2, '添加', 'strongadmin/adminMenu/create', 1, 200, '2021-01-06 04:51:07', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (5, 3, 2, '更新', 'strongadmin/adminMenu/update', 1, 200, '2021-01-06 04:51:24', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (6, 3, 2, '删除', 'strongadmin/adminMenu/destroy', 1, 200, '2021-01-06 04:51:52', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (14, 2, 1, '账号管理', 'strongadmin/adminUser/index', 1, 200, '2021-01-06 05:21:14', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (15, 3, 14, '查看', 'strongadmin/adminUser/index', 1, 200, '2021-01-06 05:22:05', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (16, 3, 14, '更新', 'strongadmin/adminUser/update', 1, 200, '2021-01-06 05:22:45', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (17, 3, 14, '删除', 'strongadmin/adminUser/destroy', 1, 200, '2021-01-06 07:08:39', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (18, 2, 1, '角色管理', 'strongadmin/adminRole/index', 1, 200, '2021-01-06 07:09:58', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (19, 3, 18, '查看', 'strongadmin/adminRole/index', 1, 200, '2021-01-06 07:10:18', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (20, 3, 18, '添加', 'strongadmin/adminRole/create', 1, 200, '2021-01-06 07:10:30', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (21, 3, 18, '更新', 'strongadmin/adminRole/update', 1, 200, '2021-01-06 07:10:48', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (22, 3, 18, '删除', 'strongadmin/adminRole/destroy', 1, 200, '2021-01-06 07:11:02', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (23, 2, 1, '操作日志', 'strongadmin/adminLog/index', 1, 200, '2021-01-07 13:40:48', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (24, 3, 23, '删除', 'strongadmin/adminLog/destroy', 1, 200, '2021-01-07 13:41:44', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (25, 3, 23, '查看', 'strongadmin/adminLog/index', 1, 200, '2021-01-08 02:27:07', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (26, 3, 18, '分配权限', 'strongadmin/adminRole/assignPermissions', 1, 200, '2021-01-08 13:08:33', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (36, 1, 0, '主页', NULL, 1, 99999, '2021-01-08 14:59:46', '2021-01-09 13:58:51');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (37, 2, 36, '面板', 'strongadmin/index/panel', 1, 200, '2021-01-08 16:38:33', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (38, 3, 14, '创建', 'strongadmin/adminUser/create', 1, 200, '2021-01-13 15:25:40', '2021-09-18 03:06:27');
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (41, 2, 1, 'Telescope', 'strongadmin/telescope/{view?}', 1, 200, '2021-01-19 17:19:57', '2021-09-18 03:06:27');");
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (1, 1, 0, '权限管理', NULL, 1, 2001, '2021-01-06 03:37:40', '2021-05-21 20:10:57', 2);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (2, 2, 1, '菜单管理', 'strongadmin/adminMenu/index', 1, 200, '2021-01-06 03:38:18', '2021-09-18 03:06:27', 2);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (3, 3, 2, '列表查看', 'strongadmin/adminMenu/index', 1, 200, '2021-01-06 04:50:41', '2021-09-18 03:06:27', 2);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (4, 3, 2, '添加', 'strongadmin/adminMenu/create', 1, 200, '2021-01-06 04:51:07', '2021-09-18 03:06:27', 2);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (5, 3, 2, '更新', 'strongadmin/adminMenu/update', 1, 200, '2021-01-06 04:51:24', '2021-09-18 03:06:27', 2);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (6, 3, 2, '删除', 'strongadmin/adminMenu/destroy', 1, 200, '2021-01-06 04:51:52', '2021-09-18 03:06:27', 2);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (14, 2, 1, '账号管理', 'strongadmin/adminUser/index', 1, 200, '2021-01-06 05:21:14', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (15, 3, 14, '查看', 'strongadmin/adminUser/index', 1, 200, '2021-01-06 05:22:05', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (16, 3, 14, '更新', 'strongadmin/adminUser/update', 1, 200, '2021-01-06 05:22:45', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (17, 3, 14, '删除', 'strongadmin/adminUser/destroy', 1, 200, '2021-01-06 07:08:39', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (18, 2, 1, '角色管理', 'strongadmin/adminRole/index', 1, 200, '2021-01-06 07:09:58', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (19, 3, 18, '查看', 'strongadmin/adminRole/index', 1, 200, '2021-01-06 07:10:18', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (20, 3, 18, '添加', 'strongadmin/adminRole/create', 1, 200, '2021-01-06 07:10:30', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (21, 3, 18, '更新', 'strongadmin/adminRole/update', 1, 200, '2021-01-06 07:10:48', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (22, 3, 18, '删除', 'strongadmin/adminRole/destroy', 1, 200, '2021-01-06 07:11:02', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (23, 2, 1, '操作日志', 'strongadmin/adminLog/index', 1, 200, '2021-01-07 13:40:48', '2021-09-18 03:06:27', 2);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (24, 3, 23, '删除', 'strongadmin/adminLog/destroy', 1, 200, '2021-01-07 13:41:44', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (25, 3, 23, '查看', 'strongadmin/adminLog/index', 1, 200, '2021-01-08 02:27:07', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (26, 3, 18, '分配权限', 'strongadmin/adminRole/assignPermissions', 1, 200, '2021-01-08 13:08:33', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (36, 1, 0, '主页', NULL, 1, 99999, '2021-01-08 14:59:46', '2021-01-09 13:58:51', 2);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (37, 2, 36, '面板', 'strongadmin/index/panel', 1, 200, '2021-01-08 16:38:33', '2021-09-18 03:06:27', 2);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (38, 3, 14, '创建', 'strongadmin/adminUser/create', 1, 200, '2021-01-13 15:25:40', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (41, 2, 1, 'Telescope', 'strongadmin/telescope/request', 1, 200, '2021-01-19 17:19:57', '2021-09-18 03:06:27', 1);");
     }
 
     /**
