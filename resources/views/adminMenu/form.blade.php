@@ -71,7 +71,56 @@
 @push('scripts_bottom')
 <script>
     !function () {
-        //...
+        layui.form.on('submit(ST-SUBMIT)', function (data) {
+            //console.log(data)
+            //layer.alert(JSON.stringify(data.field), {
+            //    title: '最终的提交信息'
+            //});
+
+            var formObj = 'form.layui-form';//表单
+            var data = data.field;//表单数据对象
+            var url = $(formObj).attr('action');//表单提交url
+            if (!url) {
+                url = window.location.pathname;
+            }
+            //注意：parent 是 JS 自带的全局对象，可用于操作父页面
+            var iframeIndex = Util.iframeIndex; //获取窗口索引
+            $.ajax({
+                url: url,
+                type: 'post',
+                dataType: 'json',
+                data: data,
+                contentType: 'application/x-www-form-urlencoded',
+                success: function (response, status, xhr) {
+                    console.log(response);
+                    $(formObj).find(":input").siblings('div.st-form-tip-error').text('');
+                    if (response.code !== 200) {
+                        //显示错误
+                        Util.showErrors(formObj, response);
+                        return;
+                    }
+                    //success
+                    layer.msg(response.message, {
+                        time: 1500
+                    });
+                    setTimeout(function () {
+                        if (iframeIndex) {
+                            parent.layer.close(iframeIndex);//关闭父窗口
+                            parent.window.location.reload();//重载父页面
+                            return;
+                        }
+                        if (response.toUrl) {
+                            window.location.href = response.toUrl;
+                            return;
+                        }
+                        window.location.reload();//重载页面
+                    }, 1600);
+                    return;
+                }
+            });
+
+            return false;
+        });
     }();
 </script>
 @endpush

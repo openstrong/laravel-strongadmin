@@ -36,7 +36,7 @@ Util.init = function () {
         },
         dataType: 'json'
     });
-    //监听提交
+    //全局监听提交
     layui.form.on('submit(ST-SUBMIT)', function (data) {
         //console.log(data)
         Util.postForm('form.layui-form', data.field, true);
@@ -137,6 +137,30 @@ Util.postForm = function (formId, data, reload = true, contentType = 'applicatio
             return false;
         }
     });
+};
+/**
+ * 渲染错误信息
+ * @param {type} formObj 表单对象
+ * @param {type} response 错误消息对象
+ * @returns {undefined}
+ */
+Util.showErrors = function (formObj, response) {
+    layer.msg(response.message, {
+        //offset: 'b',
+        anim: 6
+    });
+    let errors = response.data || [];
+    for (let errorKey of Object.keys(errors)) {
+        let errorVal = errors[errorKey][0];
+        console.log(errorKey, errorVal);
+        var pos = errorKey.indexOf('.');
+        console.log(pos);
+        if (pos >= 0) {
+            errorKey = errorKey.substr(0, pos);
+        }
+        $(formObj).find(":input[name=" + errorKey + "]").siblings('div.st-form-tip').addClass('st-form-tip-error').text(errorVal).show();
+        $(formObj).find("div[data-field=" + errorKey + "]").find('div.st-form-tip').addClass('st-form-tip-error').text(errorVal).show();
+    }
 };
 Util.destroy = function (url, data = {}, reload = true) {
     $.ajaxSetup({
@@ -360,7 +384,7 @@ Util.sortImageCover = function (id) {
 Util.getUrlParam = function (name) {
     var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
     var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-    if (r !== null || r !== '') {
+    if (r) {
         return unescape(r[2]);
     }
     return null; //返回参数值

@@ -186,13 +186,13 @@ INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (20, 3, 18, '添加', 'stro
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (21, 3, 18, '更新', 'strongadmin/adminRole/update', 1, 200, '2021-01-06 07:10:48', '2021-09-18 03:06:27', 1);
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (22, 3, 18, '删除', 'strongadmin/adminRole/destroy', 1, 200, '2021-01-06 07:11:02', '2021-09-18 03:06:27', 1);
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (23, 2, 1, '操作日志', 'strongadmin/adminLog/index', 1, 200, '2021-01-07 13:40:48', '2021-09-18 03:06:27', 2);
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (24, 3, 23, '删除', 'strongadmin/adminLog/destroy', 1, 200, '2021-01-07 13:41:44', '2021-09-18 03:06:27', 1);
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (25, 3, 23, '查看', 'strongadmin/adminLog/index', 1, 200, '2021-01-08 02:27:07', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (24, 3, 23, '删除', 'strongadmin/adminLog/destroy', 1, 200, '2021-01-07 13:41:44', '2021-09-18 03:06:27', 2);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (25, 3, 23, '查看', 'strongadmin/adminLog/index', 1, 200, '2021-01-08 02:27:07', '2021-09-18 03:06:27', 2);
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (26, 3, 18, '分配权限', 'strongadmin/adminRole/assignPermissions', 1, 200, '2021-01-08 13:08:33', '2021-09-18 03:06:27', 1);
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (36, 1, 0, '主页', NULL, 1, 99999, '2021-01-08 14:59:46', '2021-01-09 13:58:51', 2);
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (37, 2, 36, '面板', 'strongadmin/index/panel', 1, 200, '2021-01-08 16:38:33', '2021-09-18 03:06:27', 2);
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (38, 3, 14, '创建', 'strongadmin/adminUser/create', 1, 200, '2021-01-13 15:25:40', '2021-09-18 03:06:27', 1);
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (41, 2, 1, 'Telescope', 'strongadmin/telescope/request', 1, 200, '2021-01-19 17:19:57', '2021-09-18 03:06:27', 1);");
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (41, 2, 1, 'Telescope', 'strongadmin/telescope/requests', 1, 200, '2021-01-19 17:19:57', '2021-09-18 03:06:27', 1);");
     }
 
     /**
