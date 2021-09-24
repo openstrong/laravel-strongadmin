@@ -1,5 +1,5 @@
 <h1 text="center">larevel-strongadmin</h1>
-<h1 text="center">在1分钟内构建一个功能齐全的管理后台。</h3>
+<h3 text="center">在1分钟内构建一个功能齐全的管理后台。</h3>
 
 基于 layui 前端框架开发的 Laravel 后台管理框架。功能如下：
 - 权限管理
