@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>config('app.name')</title>
+        <title>{{config('app.name')}}</title>
         <meta http-equiv="Pragram" content="no-cache">
         <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
         <meta name="renderer" content="webkit">
