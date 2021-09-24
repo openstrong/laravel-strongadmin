@@ -143,7 +143,7 @@ http://xxx.com/strongadmin
 
 1. 执行`strongstub:curd`命令：
     ```
-    php artisan strongstub:curd Strongadmin/TesetAdminUserController -m App\\Models\\StrongadminUser --view --force
+    php artisan strongstub:curd Strongadmin/TesetAdminUserController -m App\\Models\\StrongadminUser --view
     ```
     结果：
     ```

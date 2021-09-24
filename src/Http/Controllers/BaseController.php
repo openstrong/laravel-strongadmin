@@ -2,7 +2,7 @@
 
 namespace OpenStrong\StrongAdmin\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Routing\Controller;
 
 class BaseController extends Controller
 {
