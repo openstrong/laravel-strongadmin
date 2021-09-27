@@ -192,7 +192,40 @@ INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (26, 3, 18, '分配权限',
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (36, 1, 0, '主页', NULL, 1, 99999, '2021-01-08 14:59:46', '2021-01-09 13:58:51', 2);
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (37, 2, 36, '面板', 'strongadmin/index/panel', 1, 200, '2021-01-08 16:38:33', '2021-09-18 03:06:27', 2);
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (38, 3, 14, '创建', 'strongadmin/adminUser/create', 1, 200, '2021-01-13 15:25:40', '2021-09-18 03:06:27', 1);
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (41, 2, 1, 'Telescope', 'strongadmin/telescope/requests', 1, 200, '2021-01-19 17:19:57', '2021-09-18 03:06:27', 1);");
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (41, 2, 1, 'Telescope', 'strongadmin/telescope/requests', 1, 200, '2021-01-19 17:19:57', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (80, 1, 0, 'Layui 布局', NULL, 1, 200, '2021-09-26 09:02:53', '2021-09-26 09:02:53', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (81, 1, 0, 'Layui 基本元素', NULL, 1, 200, '2021-09-26 09:03:11', '2021-09-26 09:03:11', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (82, 1, 0, 'Layui 组件示例', NULL, 1, 200, '2021-09-26 09:03:28', '2021-09-26 09:03:28', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (42, 2, 80, '栅格', 'strongadmin/layui/grid', 1, 200, '2021-09-26 09:04:09', '2021-09-26 09:04:09', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (43, 2, 80, '框架', 'strongadmin/layui/admin', 1, 200, '2021-09-26 09:04:43', '2021-09-26 09:04:43', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (44, 2, 81, '按钮', 'strongadmin/layui/button', 1, 200, '2021-09-26 09:08:07', '2021-09-26 09:08:07', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (45, 2, 81, '表单', 'strongadmin/layui/form', 1, 200, '2021-09-26 09:10:00', '2021-09-26 09:10:00', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (46, 2, 81, '导航', 'strongadmin/layui/nav', 1, 200, '2021-09-26 09:10:19', '2021-09-26 09:10:19', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (47, 2, 81, '基础菜单', 'strongadmin/layui/menu', 1, 200, '2021-09-26 09:10:38', '2021-09-26 09:10:38', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (48, 2, 81, '选项卡', 'strongadmin/layui/tab', 1, 200, '2021-09-26 09:11:01', '2021-09-26 09:11:01', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (49, 2, 81, '进度条', 'strongadmin/layui/progress', 1, 200, '2021-09-26 09:11:21', '2021-09-26 09:11:21', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (50, 2, 81, '面板', 'strongadmin/layui/panel', 1, 200, '2021-09-26 09:11:37', '2021-09-26 09:11:37', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (51, 2, 81, '徽章', 'strongadmin/layui/badge', 1, 200, '2021-09-26 09:11:54', '2021-09-26 09:11:54', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (52, 2, 81, '时间线', 'strongadmin/layui/timeline', 1, 200, '2021-09-26 09:12:13', '2021-09-26 09:12:13', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (53, 2, 81, '静态表格', 'strongadmin/layui/table-element', 1, 200, '2021-09-26 09:12:34', '2021-09-26 09:12:34', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (54, 2, 81, '动画', 'strongadmin/layui/anim', 1, 200, '2021-09-26 09:12:58', '2021-09-26 09:12:58', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (55, 2, 81, '辅助元素', 'strongadmin/layui/auxiliar', 1, 200, '2021-09-26 09:13:15', '2021-09-26 09:13:15', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (56, 2, 82, '弹出层', 'strongadmin/layui/layer', 1, 200, '2021-09-26 09:13:46', '2021-09-26 09:13:46', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (57, 2, 82, '日期与时间选择', 'strongadmin/layui/laydate', 1, 200, '2021-09-26 09:14:11', '2021-09-26 09:14:11', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (58, 2, 82, '数据表格', 'strongadmin/layui/table', 1, 200, '2021-09-26 09:14:29', '2021-09-26 09:14:29', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (59, 2, 82, '分页', 'strongadmin/layui/laypage', 1, 200, '2021-09-26 09:14:43', '2021-09-26 09:14:43', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (60, 2, 82, '下拉菜单', 'strongadmin/layui/dropdown', 1, 200, '2021-09-26 09:15:01', '2021-09-26 09:15:01', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (61, 2, 82, '文件上传', 'strongadmin/layui/upload', 1, 200, '2021-09-26 09:16:34', '2021-09-26 09:16:34', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (62, 2, 82, '穿梭框', 'strongadmin/layui/transfer', 1, 200, '2021-09-26 09:16:54', '2021-09-26 09:16:54', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (63, 2, 82, '树形组件', 'strongadmin/layui/tree', 1, 200, '2021-09-26 09:18:05', '2021-09-26 09:18:05', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (64, 2, 82, '颜色选择器', 'strongadmin/layui/colorpicker', 1, 200, '2021-09-26 09:18:23', '2021-09-26 09:18:23', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (65, 2, 82, '滑块', 'strongadmin/layui/slider', 1, 200, '2021-09-26 09:18:37', '2021-09-26 09:18:37', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (66, 2, 82, '评分', 'strongadmin/layui/rate', 1, 200, '2021-09-26 09:18:48', '2021-09-26 09:18:48', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (67, 2, 82, '轮播', 'strongadmin/layui/carousel', 1, 200, '2021-09-26 09:18:59', '2021-09-26 09:18:59', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (68, 2, 82, '模板引擎', 'strongadmin/layui/laytpl', 1, 200, '2021-09-26 09:19:17', '2021-09-26 09:19:17', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (69, 2, 82, '流加载', 'strongadmin/layui/flow', 1, 200, '2021-09-26 09:19:51', '2021-09-26 09:19:51', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (70, 2, 82, '工具模块', 'strongadmin/layui/util', 1, 200, '2021-09-26 09:20:42', '2021-09-26 09:20:42', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (71, 2, 82, '文本行修饰', 'strongadmin/layui/code', 1, 200, '2021-09-26 09:21:03', '2021-09-26 09:21:03', 1);");
     }
 
     /**
