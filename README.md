@@ -961,26 +961,30 @@ Route::middleware(['strongadmin'])->group(function() {
 这里一定要继承视图模板 `strongadmin::layouts.app`
 ```
 @extends('strongadmin::layouts.app')
+
 @push('styles')
-<style></style>
+    <style></style>
 @endpush
+
 @push('scripts')
-<script>
-//......
-</script>
+    <script>
+    //......
+    </script>
 @endpush
+
 @section('content')
-<div class="st-h15"></div>
-<form class="layui-form st-form-search" lay-filter="ST-FORM-SEARCH">
-    ...
-</form>
+    <div class="st-h15"></div>
+    <form class="layui-form st-form-search" lay-filter="ST-FORM-SEARCH">
+        ...
+    </form>
 @endsection
+
 @push('scripts_bottom')        
-<script>
-!function () {
-    //...
-}();
-</script>
+    <script>
+    !function () {
+        //...
+    }();
+    </script>
 @endpush
 ```
 
