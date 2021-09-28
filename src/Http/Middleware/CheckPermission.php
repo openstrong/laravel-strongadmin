@@ -72,7 +72,8 @@ class CheckPermission extends Auth
 
     protected function getIgnoreUrl()
     {
-        return parent::getIgnoreUrl();
+        $url = parent::getIgnoreUrl();
+        return array_merge($url, config('strongadmin.ignore_permission_check_url'));
     }
 
 }
