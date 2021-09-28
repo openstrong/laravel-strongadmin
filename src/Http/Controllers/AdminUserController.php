@@ -214,7 +214,7 @@ class AdminUserController extends BaseController
             return ['code' => 3001, 'message' => $validator->errors()->first(), 'data' => $validator->errors()];
         }
         $ids = is_array($request->id) ? $request->id : [$request->id];
-        $model = $adminUser::whereIn('id', $ids);
+        $model = $adminUser::where('id', '<>', 1)->whereIn('id', $ids);
         if ($model->delete())
         {
             return [

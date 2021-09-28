@@ -27,12 +27,11 @@ php artisan migrate
 php artisan strongadmin:publish
 ```
 
-
-# 浏览
-http://xxx.com/strongadmin
+# 演示
+http://demo.strongadmin.strongshop.cn/strongadmin
 ```
-后台登录账号：admin
-后台登录密码：123456
+演示账号：demo
+演示密码：demo123
 ```
 
 ## 配置
