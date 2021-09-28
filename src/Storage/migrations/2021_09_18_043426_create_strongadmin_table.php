@@ -192,7 +192,7 @@ INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (26, 3, 18, '分配权限',
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (36, 1, 0, '主页', NULL, 1, 99999, '2021-01-08 14:59:46', '2021-01-09 13:58:51', 2);
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (37, 2, 36, '面板', 'strongadmin/index/panel', 1, 200, '2021-01-08 16:38:33', '2021-09-18 03:06:27', 2);
 INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (38, 3, 14, '创建', 'strongadmin/adminUser/create', 1, 200, '2021-01-13 15:25:40', '2021-09-18 03:06:27', 1);
-INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (41, 2, 1, 'Telescope', 'strongadmin/telescope/requests', 1, 200, '2021-01-19 17:19:57', '2021-09-18 03:06:27', 1);
+INSERT INTO `{$table_prefix}strongadmin_menu` VALUES (41, 2, 1, 'Telescope', 'strongadmin/telescope/requests', 1, 200, '2021-01-19 17:19:57', '2021-09-18 03:06:27', 1);");
     }
 
     /**
