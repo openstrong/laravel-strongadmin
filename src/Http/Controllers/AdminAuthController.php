@@ -97,7 +97,8 @@ class AdminAuthController extends BaseController
         $admin_user->last_at = now();
         $admin_user->save();
         $this->clearLoginAttempts($request);
-        return ['code' => 200, 'message' => '登录成功.', 'data' => ['token' => $admin_user->api_token], 'log' => "登录成功:{$admin_user->user_name}", 'toUrl' => route('strongadmin.home')];
+        $admin_user = AdminUser::with('roles:id,name')->find($admin_user->id);
+        return ['code' => 200, 'message' => '登录成功.', 'data' => ['token' => $admin_user->api_token, 'adminUser' => $admin_user], 'log' => "登录成功:{$admin_user->user_name}", 'toUrl' => route('strongadmin.home')];
     }
 
     public function logout()
@@ -110,8 +111,8 @@ class AdminAuthController extends BaseController
 
     public function userinfo()
     {
-        $admin_user = Auth::guard(config('strongadmin.guard'))->user();
-        $admin_user->roles = [AdminRole::find($admin_user->role_id)->name];
+        $id = Auth::guard(config('strongadmin.guard'))->id();
+        $admin_user = AdminUser::with('roles:id,name')->find($id);
         return ['code' => 200, 'message' => 'success', 'data' => $admin_user];
     }
 

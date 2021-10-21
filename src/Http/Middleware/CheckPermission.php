@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\View;
 use OpenStrong\StrongAdmin\Models\AdminRole;
+use OpenStrong\StrongAdmin\Repositories\AppRepository;
 
 /**
  * 权限检测
@@ -37,6 +38,10 @@ class CheckPermission extends Auth
     {
         $current_route_url = $this->getCurrentRouteUrl($request);
         if (in_array($current_route_url, $this->getIgnoreUrl()))
+        {
+            return true;
+        }
+        if (AppRepository::isApi())
         {
             return true;
         }

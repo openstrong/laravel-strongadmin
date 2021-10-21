@@ -11,7 +11,7 @@ class AdminUser extends Model
     public $tableComments = '账号管理';
     protected $table = 'strongadmin_user';
     protected $guarded = ['id', 'created_at', 'updated_at', 'deleted_at'];
-    protected $hidden = ['password', 'remember_token'];
+    protected $hidden = ['password', 'remember_token', 'api_token', 'api_token_at', 'api_token_refresh_at'];
 
     public function __construct(array $attributes = [])
     {

@@ -24,6 +24,11 @@ class AdminMenuController extends BaseController
             },]);
         $model->with('parent');
         $rows = $model->get();
+        
+        if ($request->expectsJson())
+        {
+            return ['code' => 200, 'message' => __('admin.Success'), 'data' => $rows];
+        }
         return $this->view('adminMenu.index', ['rows' => $rows]);
     }
 

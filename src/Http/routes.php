@@ -12,6 +12,7 @@ Route::any('captcha', 'IndexController@captcha')->name('strongadmin.captcha'); /
 Route::any('login', 'AdminAuthController@login')->name('strongadmin.login'); //登录
 Route::any('logout', 'AdminAuthController@logout')->name('strongadmin.logout'); //退出
 Route::any('/', 'IndexController@home')->name('strongadmin.home'); //home 主页
+Route::any('userinfo', 'AdminAuthController@userinfo'); //管理员信息
 Route::any('index/panel', 'IndexController@panel')->name('strongadmin.panel'); //面板
 //操作日志
 Route::any('adminLog/index', 'AdminLogController@index');
