@@ -24,7 +24,7 @@ class CheckPermission extends Auth
     {
         if (!$this->checkPermission($request))
         {
-            if ($request->ajax() || $request->pjax())
+            if ($request->expectsJson())
             {
                 return response()->json(['code' => 403, 'message' => '暂无权限']);
             }

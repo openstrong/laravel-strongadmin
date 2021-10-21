@@ -18,7 +18,7 @@ class AdminLogController extends BaseController
      */
     public function index(Request $request, AdminLog $adminLog)
     {
-        if (!$request->ajax() && !$request->pjax())
+        if (!$request->expectsJson())
         {
             return $this->view('adminLog.index', ['model' => $adminLog]);
         }

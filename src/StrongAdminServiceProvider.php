@@ -28,6 +28,7 @@ class StrongAdminServiceProvider extends ServiceProvider
         $this->loadViewsFrom(
                 __DIR__ . '/../resources/views', 'strongadmin'
         );
+        $this->captchaConfig();
     }
 
     /**
@@ -115,4 +116,22 @@ class StrongAdminServiceProvider extends ServiceProvider
         ]);
     }
 
+    public function captchaConfig()
+    {
+        $data = [
+            'length' => 4,
+            'width' => 120,
+            'height' => 44,
+            'quality' => 90,
+            'math' => false,
+            'expire' => 60,
+            'encrypt' => false,
+            'lines' => 1,
+            'bgImage' => false,
+            'bgColor' => '#ecf2f4',
+            'fontColors' => ['#2c3e50', '#c0392b', '#16a085', '#c0392b', '#8e44ad', '#303f9f', '#f57c00', '#795548'],
+        ];
+        config(['captcha.characters' => ['2', '3', '4', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'j', 'm', 'n', 'p', 'q', 'r', 't', 'u', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'M', 'N', 'P', 'Q', 'R', 'T', 'U', 'X', 'Y', 'Z']]);
+        config(['captcha.default' => array_merge($data, config('strongadmin.storage.captcha'))]);
+    }
 }

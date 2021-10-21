@@ -81,7 +81,7 @@ class AdminRoleController extends BaseController
      */
     public function create(Request $request, AdminRole $adminRole)
     {
-        if ($request->isMethod('get'))
+        if (!$request->expectsJson())
         {
             return $this->view('adminRole.form', ['model' => $adminRole]);
         }
@@ -119,7 +119,7 @@ class AdminRoleController extends BaseController
      */
     public function update(Request $request, AdminRole $adminRole)
     {
-        if ($request->isMethod('get'))
+        if (!$request->expectsJson())
         {
             $model = $adminRole::find($request->id);
             return $this->view('adminRole.form', ['model' => $model]);
@@ -185,7 +185,7 @@ class AdminRoleController extends BaseController
     {
         $model = $adminRole::find($request->id);
 
-        if ($request->isMethod('get'))
+        if (!$request->expectsJson())
         {
             $modelMenu = AdminMenu::orderBy('sort', 'DESC');
             $modelMenu->where('level', 1);

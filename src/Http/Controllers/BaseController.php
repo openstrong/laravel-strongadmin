@@ -7,6 +7,8 @@ use Illuminate\Routing\Controller;
 class BaseController extends Controller
 {
 
+    use \OpenStrong\StrongAdmin\Repositories\Traits\AppTrait;
+
     /**
      * Get the evaluated view contents for the given view.
      *
@@ -22,6 +24,12 @@ class BaseController extends Controller
             $view = 'strongadmin::' . $view;
         }
         return view($view, $data, $mergeData);
+    }
+
+    protected function isApi()
+    {
+        $data = config('strongadmin.middleware');
+        return array_search('api', $data) !== false ? true : false;
     }
 
 }

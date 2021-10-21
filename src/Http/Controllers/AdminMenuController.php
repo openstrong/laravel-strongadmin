@@ -34,7 +34,7 @@ class AdminMenuController extends BaseController
      */
     public function create(Request $request, AdminMenu $adminMenu)
     {
-        if ($request->isMethod('get'))
+        if (!$request->expectsJson())
         {
             $adminMenu->parent_id = $request->parent_id ?: 0;
             $adminMenu->level = $request->level ?: 1;
@@ -72,7 +72,7 @@ class AdminMenuController extends BaseController
      */
     public function update(Request $request, AdminMenu $adminMenu)
     {
-        if ($request->isMethod('get'))
+        if (!$request->expectsJson())
         {
             $adminMenu = $adminMenu::find($request->id);
             $menus = AdminMenu::where('level', 1)->orderByDesc('sort')->get();

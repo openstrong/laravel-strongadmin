@@ -3,6 +3,7 @@
 namespace OpenStrong\StrongAdmin\Models;
 
 use Illuminate\Foundation\Auth\User as Model;
+use Illuminate\Support\Str;
 
 class AdminUser extends Model
 {
@@ -104,6 +105,13 @@ class AdminUser extends Model
     public function roles()
     {
         return $this->belongsToMany(AdminRole::class, 'strongadmin_user_role', 'admin_user_id', 'admin_role_id');
+    }
+
+    public static function generateApiToken()
+    {
+        $time = time() + floatval(microtime());
+        $str = 'ST.' . Str::random(32) . '.' . $time;
+        return $str;
     }
 
 }
