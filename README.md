@@ -1,7 +1,7 @@
 <h1 align="center">Larevel-StrongAdmin</h1>
 <h3 align="center">在1分钟内构建一个功能齐全的管理后台。</h3>
 
-基于 layui 前端框架开发的 Laravel 后台管理框架。功能如下：
+基于 layui 前端框架开发的 Laravel 后台管理框架。同时拥有 api 接口，配合前端 VUE 开发。功能如下：
 - 权限管理
 - 菜单管理
 - 角色管理
