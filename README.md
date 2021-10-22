@@ -36,6 +36,10 @@ http://你的域名/strongadmin
 php artisan strongadmin:publish
 ```
 
+## 查看接口文档
+[点击查看](https://gitee.com/openstrong/laravel-strongstub/tree/master/wikiAPI "点击查看")
+
+
 # 使用此扩展包的开源项目
 StrongShop 开源跨境商城 http://www.strongshop.cn
 
