@@ -14,6 +14,8 @@ http://demo.strongadmin.strongshop.cn/strongadmin
 演示账号：admin
 演示密码：123456
 ```
+## 查看接口文档
+[点击查看](https://gitee.com/openstrong/laravel-strongstub/tree/master/wikiAPI "点击查看")
 
 ## 安装
 你可以使用 Composer 在 Laravel 5|6|7|8 项目中安装 laravel-strongadmin 扩展：
@@ -35,10 +37,6 @@ http://你的域名/strongadmin
 ```
 php artisan strongadmin:publish
 ```
-
-## 查看接口文档
-[点击查看](https://gitee.com/openstrong/laravel-strongstub/tree/master/wikiAPI "点击查看")
-
 
 # 使用此扩展包的开源项目
 StrongShop 开源跨境商城 http://www.strongshop.cn
