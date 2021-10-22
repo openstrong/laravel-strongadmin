@@ -8,6 +8,13 @@
 - 日志记录
 - 管理员账号
 
+# 演示站点
+http://demo.strongadmin.strongshop.cn/strongadmin
+```
+演示账号：admin
+演示密码：123456
+```
+
 ## 安装
 你可以使用 Composer 在 Laravel 5|6|7|8 项目中安装 laravel-strongadmin 扩展：
 ```
@@ -27,13 +34,6 @@ http://你的域名/strongadmin
 更新 laravel-strongadmin 时，您应该重新配置加载 laravel-strongadmin 实例：
 ```
 php artisan strongadmin:publish
-```
-
-# 演示
-http://demo.strongadmin.strongshop.cn/strongadmin
-```
-演示账号：admin
-演示密码：123456
 ```
 
 # 使用此扩展包的开源项目
