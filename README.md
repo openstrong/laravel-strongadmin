@@ -20,6 +20,8 @@ php artisan strongadmin:install
 
 php artisan migrate
 ```
+### 浏览
+http://你的域名/strongadmin
 
 ## 更新 laravel-strongadmin
 更新 laravel-strongadmin 时，您应该重新配置加载 laravel-strongadmin 实例：
