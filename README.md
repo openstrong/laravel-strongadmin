@@ -38,11 +38,6 @@ http://你的域名/strongadmin
 php artisan strongadmin:publish
 ```
 
-# 使用此扩展包的开源项目
-StrongShop 开源跨境商城 http://www.strongshop.cn
-
-QQ群：557655631
-
 ## 配置
 使用 laravel-strongadmin，其主要配置文件将位于 config/strongadmin.php。每个配置选项都包含其用途说明，因此请务必彻底浏览此文件。
 
@@ -1019,3 +1014,8 @@ Route::middleware(['strongadmin'])->group(function() {
         Route::any('strongadmin/login', 'Strongadmin\AdminAuthController@login');
     });
     ```
+
+# 使用此扩展包的开源项目
+StrongShop 开源跨境商城 http://www.strongshop.cn
+
+QQ群：557655631
