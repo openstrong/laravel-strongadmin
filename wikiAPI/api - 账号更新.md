@@ -18,6 +18,7 @@
 |:----    |:---|:----- |-----   |
 |Content-Type |是  |string |application/json   |
 |Accept |是  |string |application/json   |
+|Authorization|是|string|{token}|
 
 #### 请求参数:
 
