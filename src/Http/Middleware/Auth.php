@@ -41,11 +41,11 @@ class Auth
             $user = auth(config('strongadmin.guard'))->user();
             if ($user->api_token_at && now()->gte($user->api_token_at))
             {
-                return response()->json(['code' => 432, 'message' => __('token expired 已过期')]);
+                return response()->json(['code' => 431, 'message' => __('token expired 已过期')]);
             }
             if ($user->api_token_refresh_at && now()->gte($user->api_token_refresh_at))
             {
-                return response()->json(['code' => 433, 'message' => __('token must be refreshed 请刷新token')]);
+                return response()->json(['code' => 432, 'message' => __('token must be refreshed 请刷新token')]);
             }
         }
         return $next($request);
