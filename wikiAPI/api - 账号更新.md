@@ -34,6 +34,7 @@
 |avatar |否  |string |头像   |
 |introduction |否  |string |介绍   |
 |status |是  |integer |状态 1 启用, 2 禁用   |
+|role_id |是  |array |角色id： [1,2]|
 
 #### 返回示例:
 

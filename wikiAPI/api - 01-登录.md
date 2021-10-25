@@ -25,7 +25,7 @@
 |:----    |:---|:----- |-----   |
 |username |是  |string |登录名   |
 |password |是  |string |登录密码   |
-|captcha_key |是  |string |验证码key （api - 登录-图片验证码）  |
+|captcha_key |是  |string |验证码key （请查看 `api - 01-登录-图片验证码` 获取）  |
 |captcha |是  |string |验证码   |
 
 #### 返回示例:
@@ -37,17 +37,17 @@
     "code": 200,
     "message": "登录成功.",
     "data": {
-        // 登录token，放在 header 头使用，参数名： Authorization
-        "token": "Bearer ST.zgM7ukzA4ri1BqnjMGHZGmrwgLZkElHD.1634900732.2342",//登录token
+        "token": "Bearer ST.zgM7ukzA4ri1BqnjMGHZGmrwgLZkElHD.1634900732.2342",//登录token；放在 header 头使用，参数名： Authorization
+        // 管理员信息
         "adminUser": {
-            "id": 1,
-            "user_name": "admin",
+            "id": 1,//管理员id
+            "user_name": "admin",//管理登录名称
             "name": "",
             "email": "",
             "phone": "",
             "avatar": "",
             "introduction": "",
-            "status": 1,
+            "status": 1,//状态：1 正常，2 禁用
             "last_ip": "127.0.0.1",
             "last_at": "2021-10-22 11:05:32",
             "created_at": null,
@@ -55,8 +55,8 @@
             //角色信息
             "roles": [
                 {
-                    "id": 1,
-                    "name": "管理员",
+                    "id": 1,//角色id
+                    "name": "管理员",//角色名称
                     "pivot": {
                         "admin_user_id": 1,
                         "admin_role_id": 1

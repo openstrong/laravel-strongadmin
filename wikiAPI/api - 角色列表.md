@@ -2,11 +2,11 @@
 
 |版本号|制定人|修订日期|说明|
 |:----|:----|:----   |:----|
-|1.0 |Karen  |2021-10-22 |建立文档|
+|1.0 |Karen  |2021-10-25 |建立文档|
 
 #### 请求URL:
 
-- {{HOST}}/strongadmin/adminUser/index
+- {{HOST}}/strongadmin/adminRole/index
 
 #### 请求方式：
 
@@ -25,16 +25,8 @@
 |参数名|是否必须|类型|说明|
 |:----    |:---|:----- |-----   |
 |page |否  |integer |第几页, 如果是 -1 表示不分页   |
-|user_name |否  |string |登录名   |
-|password |否  |string |登录密码   |
-|name |否  |string |姓名   |
-|email |否  |string |邮箱   |
-|phone |否  |string |手机号   |
-|avatar |否  |string |头像   |
-|introduction |否  |string |介绍   |
-|status |否  |integer |状态 1 启用, 2 禁用   |
-|last_ip |否  |string |最近一次登录ip   |
-|last_at |否  |date |最近一次登录时间   |
+|name |否  |string |名称   |
+|desc |否  |string |角色描述   |
 |created_at_begin |否  |date |CREATED_AT 开始日期   |
 |created_at_end |否  |date |CREATED_AT 结束日期   |
 
@@ -49,30 +41,18 @@
     "data": {
         "data": [
             {
-                "id": 1, //管理员id
-                "user_name": "admin", //登录名
-                "name": "", //姓名
-                "email": "", //邮箱
-                "phone": "", //手机号
-                "avatar": "", //头像
-                "introduction": "", //介绍
-                "status": 1, //状态 1 启用, 2 禁用
-                "last_ip": "127.0.0.1", //最近一次登录ip
-                "last_at": "2021-10-21 07:17:35", //最近一次登录时间
+                "id": 1, //角色id
+                "name": "管理员", //名称
+                "desc": "超级管理员，不可删除", //角色描述
+                "permissions": "", //拥有的权限
                 "created_at": "", //
-                "updated_at": "2021-10-21 07:17:35" //
+                "updated_at": "" //
             },
             {
                 "id": 2,
-                "user_name": "demo",
-                "name": "",
-                "email": "",
-                "phone": "",
-                "avatar": "",
-                "introduction": "",
-                "status": 1,
-                "last_ip": "",
-                "last_at": "",
+                "name": "demo",
+                "desc": "仅作为演示",
+                "permissions": "",
                 "created_at": "",
                 "updated_at": ""
             }

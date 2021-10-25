@@ -19,11 +19,13 @@ Route::any('adminLog/index', 'AdminLogController@index');
 Route::any('adminLog/destroy', 'AdminLogController@destroy');
 //菜单管理
 Route::any('adminMenu/index', 'AdminMenuController@index');
+Route::any('adminMenu/show', 'AdminMenuController@show');
 Route::any('adminMenu/create', 'AdminMenuController@create');
 Route::any('adminMenu/update', 'AdminMenuController@update');
 Route::any('adminMenu/destroy', 'AdminMenuController@destroy');
 //角色管理
 Route::any('adminRole/index', 'AdminRoleController@index');
+Route::any('adminRole/show', 'AdminRoleController@show');
 Route::any('adminRole/create', 'AdminRoleController@create');
 Route::any('adminRole/update', 'AdminRoleController@update');
 Route::any('adminRole/destroy', 'AdminRoleController@destroy');

@@ -33,6 +33,31 @@ class AdminMenuController extends BaseController
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function show(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+                    'id' => ['required', 'integer', Rule::exists('strongadmin_menu')],
+        ]);
+        if ($validator->fails())
+        {
+            return ['code' => 3001, 'message' => $validator->errors()->first(), 'data' => $validator->errors()];
+        }
+        $model = AdminMenu::find($request->id);
+        if ($model)
+        {
+            return ['code' => 200, 'message' => __('admin.Success'), 'data' => $model];
+        } else
+        {
+            return ['code' => 5001, 'message' => __('admin.Server internal error')];
+        }
+    }
+    
+    /**
      * Store a newly created resource in storage.
      *
      * @return \Illuminate\Http\Response

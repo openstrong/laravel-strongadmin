@@ -10,14 +10,12 @@
 
 #### 请求方式：
 
-- POST
+- GET
 
 #### 请求头：
 
 |参数名|是否必须|类型|说明|
 |:----    |:---|:----- |-----   |
-|Content-Type |是  |string |application/json   |
-|Accept |是  |string |application/json   |
 
 #### 请求参数:
 
