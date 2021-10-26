@@ -1,3 +1,8 @@
+#### 使用api开发，请在项目根目录的 `.env` 文件增加如下配置：
+```
+STRONGADMIN_GUARDS_DRIVER=token
+```
+
 #### 配合前端项目开发
 推荐使用 [vue-element-admin](https://panjiachen.gitee.io/vue-element-admin-site/zh/)
 #### 接口规范
