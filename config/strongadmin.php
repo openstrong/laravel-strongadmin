@@ -69,7 +69,7 @@ return [
       |
      */
     'middleware' => [
-        'web',
+        config('auth.guards.strongadmin.driver') == 'session' ? 'web' : 'api',
         OpenStrong\StrongAdmin\Http\Middleware\Auth::class, //登录认证检测
         OpenStrong\StrongAdmin\Http\Middleware\CheckPermission::class, //权限检测
         OpenStrong\StrongAdmin\Http\Middleware\Log::class, //日志记录

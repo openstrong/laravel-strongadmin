@@ -105,7 +105,7 @@ class InstallCommand extends Command
         $appConfig = str_replace(
             "'guards' => [".$eol,
             "'guards' => [".$eol."        '{$guard}' => [
-            'driver' => 'session',
+            'driver' => env('STRONGADMIN_GUARDS_DRIVER', 'session'),
             'provider' => '{$guard}s',
         ],".$eol.$eol,$appConfig);
         $appConfig = str_replace(

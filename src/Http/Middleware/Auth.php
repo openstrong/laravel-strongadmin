@@ -45,7 +45,7 @@ class Auth
             }
             if ($user->api_token_refresh_at && now()->gte($user->api_token_refresh_at))
             {
-                return response()->json(['code' => 432, 'message' => __('token must be refreshed 请刷新token')]);
+                //return response()->json(['code' => 432, 'message' => __('token must be refreshed 请刷新token')]);
             }
         }
         return $next($request);
