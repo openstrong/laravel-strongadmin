@@ -15,7 +15,7 @@
                 <fieldset class="layui-elem-field layui-field-title">
                     <legend>{{config('app.name')}} 后台管理</legend>
                 </fieldset>
-                <form class="layui-form layui-form-pane" action="/admin/login" lay-filter="ST-FORM" id="ST-FORM">
+                <form class="layui-form layui-form-pane" action="" lay-filter="ST-FORM" id="ST-FORM">
                     <div class="layui-form-item">
                         <label class="layui-form-label">登录用户</label>
                         <div class="layui-input-block">
@@ -51,7 +51,7 @@
             !function () {
                 layui.form.on('submit(ST-SUBMIT)', function (data) {
                     console.log(data)
-                    Util.postForm('ST-FORM', data.field, false);
+                    Util.postForm('#ST-FORM', data.field, false);
                     return false;
                 });
             }();
