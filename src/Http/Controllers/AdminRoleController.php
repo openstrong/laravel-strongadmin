@@ -86,7 +86,7 @@ class AdminRoleController extends BaseController
             return $this->view('adminRole.form', ['model' => $adminRole]);
         }
         $rules = array_merge_recursive($adminRole->rules(), [
-            'name' => ['unique:admin_role'],
+            'name' => ['unique:strongadmin_role'],
         ]);
         $messages = $adminRole->messages();
         $customAttributes = $adminRole->customAttributes();
