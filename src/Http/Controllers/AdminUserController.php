@@ -122,7 +122,7 @@ class AdminUserController extends BaseController
             return $this->view('adminUser.form', ['model' => $adminUser, 'roles' => $roles]);
         }
         $rules = array_merge_recursive($adminUser->rules(), [
-            'user_name' => ['unique:admin_user'],
+            'user_name' => ['unique:strongadmin_user'],
             'password' => ['required'],
         ]);
         $messages = $adminUser->messages();
