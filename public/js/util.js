@@ -319,45 +319,55 @@ Util.createWindow = function (url, title = '信息', area = ['100%', '100%'], na
     ;
 };
 Util.treeTable = function (id) {
+    var _this = this;
     $(id + ' .st-tree-table').click(function () {
         var parentObj = $(this).parent().parent();
-        Util.treeTableEach(parentObj);
+        var parentOpen = $(parentObj).attr('data-open');
+        if (parentOpen == -1) {
+            return;
+        }
+        if (parentOpen == 0) {
+            _this.openTreeTable(parentObj, true);
+        } else {
+            _this.closeTreeTable(parentObj);
+        }
     });
     var down = this.getUrlParam('down');
     if (down == 1) {
-        $(id + " tbody tr").removeClass('layui-hide').find('.st-tree-table').children('i.layui-icon-add-circle').removeClass('layui-icon-add-circle').addClass('layui-icon-reduce-circle');
+        $(id + " tbody tr").removeClass('layui-hide').find('.st-tree-table').children('i.layui-icon-add-circle').removeClass('layui-icon-add-circle').addClass('layui-icon-reduce-circle').parent().parent().parent().attr('data-open', 1);
     }
 };
-Util.treeTableEach = function (parentObj, isFirstLevel = true) {
+Util.openTreeTable = function (parentObj, isFirstLevel) {
     var _this = this;
+    if (!isFirstLevel) {
+        var parentOpen = $(parentObj).attr('data-open');
+        parentOpen = $.trim(parentOpen);
+        if (parentOpen == -1) {
+            return;
+        }
+        if (parentOpen == 0) {
+            return;
+        }
+    }
     var parenLevel = $(parentObj).attr('data-level');
-    var parentOpen = $(parentObj).attr('data-open');
-    parentOpen = $.trim(parentOpen);
     var parentIndent = $(parentObj).attr('data-indent');
     var childIndent = parseInt(parentIndent) + 1;
     var parentIconObj = $(parentObj).find('.st-tree-table').children('i');
-    var closedStatus = 0, openedStatus = 1;
-    if (isFirstLevel === false) {
-        closedStatus = 1, openedStatus = 0;
-    }
-    if (parentOpen == -1) {
-        return;
-    }
-    if (parentOpen == closedStatus) {
-        $(parentObj).attr('data-open', 1);
-        $(parentIconObj).removeClass('layui-icon-add-circle').addClass('layui-icon-reduce-circle');
-        var parentSiblingsElements = $(parentObj).siblings("[data-level^='" + parenLevel + "'][data-indent='" + childIndent + "']");
-        $(parentSiblingsElements).removeClass('layui-hide');
-        parentSiblingsElements.each(function () {
-            _this.treeTableEach(this, false);
-        });
-    } else if (parentOpen == openedStatus) {
-        $(parentObj).attr('data-open', 0);
-        $(parentIconObj).removeClass('layui-icon-reduce-circle').addClass('layui-icon-add-circle');
-        var parentSiblingsElements = $(parentObj).siblings("[data-level^='" + parenLevel + "']");
-        $(parentSiblingsElements).addClass('layui-hide');
-    }
-    ;
+    $(parentObj).attr('data-open', 1);
+    $(parentIconObj).removeClass('layui-icon-add-circle').addClass('layui-icon-reduce-circle');
+    var parentSiblingsElements = $(parentObj).siblings("[data-level^='" + parenLevel + "'][data-indent='" + childIndent + "']");
+    $(parentSiblingsElements).removeClass('layui-hide');
+    parentSiblingsElements.each(function () {
+        _this.openTreeTable(this, false);
+    });
+};
+Util.closeTreeTable = function (parentObj) {
+    var parenLevel = $(parentObj).attr('data-level');
+    var parentIconObj = $(parentObj).find('.st-tree-table').children('i');
+    $(parentObj).attr('data-open', 0);
+    $(parentIconObj).removeClass('layui-icon-reduce-circle').addClass('layui-icon-add-circle');
+    var parentSiblingsElements = $(parentObj).siblings("[data-level^='" + parenLevel + "']");
+    $(parentSiblingsElements).addClass('layui-hide');
 };
 Util.sortImage = function (id) {
     var _this = this;
